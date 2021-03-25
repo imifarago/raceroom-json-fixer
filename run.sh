@@ -3,6 +3,10 @@ INPUT_FILE=$1
 OUTPUT_FILE=$2
 SESSION_NAME=$3
 
+if [ ! -f "$OUTPUT_FILE" ]; then
+    touch $OUTPUT_FILE
+fi
+
 docker build -t raceroom-json .
 
 docker run --rm \
